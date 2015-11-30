@@ -1,6 +1,7 @@
-package ru.javawebinar.topjava.repository;
+package ru.javawebinar.topjava.repository.mock;
 
 import ru.javawebinar.topjava.model.UserMeal;
+import ru.javawebinar.topjava.repository.UserMealRepository;
 
 import java.time.LocalDateTime;
 import java.time.Month;

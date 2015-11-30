@@ -2,8 +2,8 @@ package ru.javawebinar.topjava.web;
 
 import ru.javawebinar.topjava.LoggerWrapper;
 import ru.javawebinar.topjava.model.UserMeal;
-import ru.javawebinar.topjava.repository.InMemoryUserMealRepository;
 import ru.javawebinar.topjava.repository.UserMealRepository;
+import ru.javawebinar.topjava.repository.mock.InMemoryUserMealRepository;
 import ru.javawebinar.topjava.util.UserMealsUtil;
 
 import javax.servlet.ServletConfig;
