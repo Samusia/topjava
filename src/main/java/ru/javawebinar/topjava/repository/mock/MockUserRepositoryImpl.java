@@ -1,5 +1,6 @@
 package ru.javawebinar.topjava.repository.mock;
 
+import org.springframework.stereotype.Repository;
 import ru.javawebinar.topjava.LoggerWrapper;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.repository.UserRepository;
@@ -11,6 +12,7 @@ import java.util.List;
  * Created by Samusia
  * on 30.11.2015.
  */
+@Repository
 public class MockUserRepositoryImpl implements UserRepository {
     private static final LoggerWrapper LOG = LoggerWrapper.get(MockUserRepositoryImpl.class);
 
