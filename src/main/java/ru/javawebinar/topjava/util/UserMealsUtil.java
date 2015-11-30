@@ -46,7 +46,7 @@ public class UserMealsUtil {
     }
 
     public static UserMealWithExceed createWithExceed(UserMeal um, boolean exceeded) {
-        return new UserMealWithExceed(um.getDateTime(), um.getDescription(), um.getCalories(), exceeded);
+        return new UserMealWithExceed(um.getId(), um.getDateTime(), um.getDescription(), um.getCalories(), exceeded);
     }
 
     public static List<UserMealWithExceed> getFilteredWithExceededByCycle(List<UserMeal> mealList, LocalTime startTime, LocalTime endTime, int caloriesPerDay) {
