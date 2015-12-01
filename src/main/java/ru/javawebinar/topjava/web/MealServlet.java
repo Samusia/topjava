@@ -1,9 +1,10 @@
 package ru.javawebinar.topjava.web;
 
+import ru.javawebinar.topjava.LoggedUser;
 import ru.javawebinar.topjava.LoggerWrapper;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.repository.UserMealRepository;
-import ru.javawebinar.topjava.repository.mock.InMemoryUserMealRepository;
+import ru.javawebinar.topjava.repository.mock.InMemoryUserMealRepositoryImpl;
 import ru.javawebinar.topjava.util.UserMealsUtil;
 
 import javax.servlet.ServletConfig;
@@ -27,7 +28,7 @@ public class MealServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        repository = new InMemoryUserMealRepository();
+        repository = new InMemoryUserMealRepositoryImpl();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
@@ -38,7 +39,7 @@ public class MealServlet extends HttpServlet {
                 request.getParameter("description"),
                 Integer.valueOf(request.getParameter("calories")));
         LOG.info(userMeal.isNew() ? "Create {}" : "Update {}", userMeal);
-        repository.save(userMeal);
+        repository.save(userMeal, LoggedUser.id());
         response.sendRedirect("meals");
     }
 
@@ -48,17 +49,17 @@ public class MealServlet extends HttpServlet {
         if (action == null) {
             LOG.info("getAll");
             request.setAttribute("mealList",
-                    UserMealsUtil.getWithExceeded(repository.getAll(), 2000));
+                    UserMealsUtil.getWithExceeded(repository.getAll(LoggedUser.id()), 2000));
             request.getRequestDispatcher("/mealList.jsp").forward(request, response);
         } else if (action.equals("delete")) {
             int id = getId(request);
             LOG.info("Delete {}", id);
-            repository.delete(id);
+            repository.delete(id, LoggedUser.id());
             response.sendRedirect("meals");
         } else {
             final UserMeal meal = action.equals("create") ?
                     new UserMeal(LocalDateTime.now(), "", 1000) :
-                    repository.get(getId(request));
+                    repository.get(getId(request), LoggedUser.id());
             request.setAttribute("meal", meal);
             request.getRequestDispatcher("mealEdit.jsp").forward(request, response);
         }
