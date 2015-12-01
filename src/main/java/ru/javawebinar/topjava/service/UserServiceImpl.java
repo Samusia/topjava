@@ -7,7 +7,7 @@ import ru.javawebinar.topjava.repository.UserRepository;
 import ru.javawebinar.topjava.util.exception.ExceptionUtil;
 import ru.javawebinar.topjava.util.exception.NotFoundException;
 
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Samusia
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         return ExceptionUtil.check(repository.getByEmail(email), "email=" + email);
     }
 
-    public List<User> getAll() {
+    public Collection<User> getAll() {
         return repository.getAll();
     }
 

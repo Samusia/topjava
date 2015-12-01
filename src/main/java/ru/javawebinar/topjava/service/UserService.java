@@ -4,7 +4,7 @@ package ru.javawebinar.topjava.service;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.util.exception.NotFoundException;
 
-import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by Samusia
@@ -20,7 +20,7 @@ public interface UserService {
 
     User getByEmail(String email) throws NotFoundException;
 
-    List<User> getAll();
+    Collection<User> getAll();
 
     void update(User user) throws NotFoundException;
 }
