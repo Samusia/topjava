@@ -22,6 +22,9 @@
         <!-- Logging -->
         <logback.version>1.1.2</logback.version>
         <slf4j.version>1.7.7</slf4j.version>
+
+        <!--    Tests  -->
+        <junit.version>4.12</junit.version>
     </properties>
 
     <build>
@@ -95,6 +98,14 @@
                     <artifactId>commons-logging</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!--Test-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
