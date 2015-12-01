@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public class User extends NamedEntity {
 
-    private static final int DEFAULT_CALORIES_PER_DAY = 2000;
+    protected static final int DEFAULT_CALORIES_PER_DAY = 2000;
 
     protected String email;
 
@@ -25,6 +25,10 @@ public class User extends NamedEntity {
     protected int caloriesPerDay = DEFAULT_CALORIES_PER_DAY;
 
     public User() {
+    }
+
+    public User(User u) {
+        this(u.getId(), u.getName(), u.getEmail(), u.getPassword(), u.getCaloriesPerDay(), u.isEnabled(), u.getRoles());
     }
 
     public User(Integer id, String name, String email, String password, Role role, Role... roles) {
