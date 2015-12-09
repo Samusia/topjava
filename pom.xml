@@ -25,6 +25,10 @@
 
         <!--    Tests  -->
         <junit.version>4.12</junit.version>
+
+        <!-- Hibernate -->
+        <hibernate.version>5.0.1.Final</hibernate.version>
+        <hibernate-validator.version>5.1.3.Final</hibernate-validator.version>
     </properties>
 
     <build>
@@ -108,8 +112,18 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
+            <artifactId>spring-orm</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
         </dependency>
 
         <!--Test-->
