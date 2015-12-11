@@ -5,13 +5,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.junit.rules.Stopwatch;
 import org.junit.runner.Description;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.SqlConfig;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ru.javawebinar.topjava.LoggerWrapper;
 import ru.javawebinar.topjava.MealTestData;
 import ru.javawebinar.topjava.model.UserMeal;
@@ -23,19 +17,11 @@ import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import static ru.javawebinar.topjava.MealTestData.*;
-import static ru.javawebinar.topjava.Profiles.POSTGRES;
 import static ru.javawebinar.topjava.UserTestData.ADMIN_ID;
 import static ru.javawebinar.topjava.UserTestData.USER_ID;
 
-@ContextConfiguration({
-        "classpath:spring/spring-app.xml",
-        "classpath:spring/spring-db.xml"
-})
-@RunWith(SpringJUnit4ClassRunner.class)
-@Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))
-@ActiveProfiles(POSTGRES)
-public class UserMealServiceTest {
-    private static final LoggerWrapper LOG = LoggerWrapper.get(UserMealServiceTest.class);
+abstract public class AbstractUserMealServiceTest extends AbstractServiceTest {
+    private static final LoggerWrapper LOG = LoggerWrapper.get(AbstractUserMealServiceTest.class);
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
