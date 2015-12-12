@@ -1,8 +1,8 @@
 package ru.javawebinar.topjava.web;
 
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.javawebinar.topjava.LoggerWrapper;
+import ru.javawebinar.topjava.Profiles;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.util.TimeUtil;
 import ru.javawebinar.topjava.web.meal.UserMealRestController;
@@ -25,13 +25,16 @@ import java.util.Objects;
 public class MealServlet extends HttpServlet {
     private static final LoggerWrapper LOG = LoggerWrapper.get(MealServlet.class);
 
-    private ConfigurableApplicationContext springContext;
+    private ClassPathXmlApplicationContext springContext;
     private UserMealRestController mealController;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        springContext = new ClassPathXmlApplicationContext("spring/spring-app.xml", "spring/spring-db.xml");
+        springContext = new ClassPathXmlApplicationContext();
+        springContext.getEnvironment().setActiveProfiles(Profiles.POSTGRES, Profiles.DATAJPA);
+        springContext.setConfigLocations("spring/spring-app.xml", "spring/spring-db.xml");
+        springContext.refresh();
         mealController = springContext.getBean(UserMealRestController.class);
     }
 
