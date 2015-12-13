@@ -21,6 +21,8 @@
         <spring-data-jpa.version>1.9.0.RELEASE</spring-data-jpa.version>
         <spring.version>4.2.1.RELEASE</spring.version>
 
+        <postgres.version>9.4-1201-jdbc41</postgres.version>
+
         <!-- Logging -->
         <logback.version>1.1.2</logback.version>
         <slf4j.version>1.7.7</slf4j.version>
@@ -48,6 +50,28 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <contextFile>src/main/resources/tomcat/context.xml</contextFile>
+                    <systemProperties>
+                        <file.encoding>UTF-8</file.encoding>
+                        <spring.profiles.active>tomcat,datajpa</spring.profiles.active>
+                    </systemProperties>
+                    <protocol>org.apache.coyote.http11.Http11NioProtocol</protocol>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.postgresql</groupId>
+                        <artifactId>postgresql</artifactId>
+                        <version>${postgres.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
         </plugins>
     </build>
 
@@ -186,7 +210,7 @@
                 <dependency>
                     <groupId>org.postgresql</groupId>
                     <artifactId>postgresql</artifactId>
-                    <version>9.4-1201-jdbc41</version>
+                    <version>${postgres.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apache.tomcat</groupId>
