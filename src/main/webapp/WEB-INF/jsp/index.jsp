@@ -2,27 +2,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<fmt:setBundle basename="messages.app"/>
-
 <html>
 <jsp:include page="fragments/headTag.jsp"/>
 <body>
 <jsp:include page="fragments/bodyHeader.jsp"/>
-
 <section>
     <form method="post" action="users">
-    Login as: <select name="userId">
+    <fmt:message key="app.login"/>: <select name="userId">
     <option value="100000" selected>User</option>
     <option value="100001">Admin</option>
 </select>
-    <button type="submit">Выбрать</button>
+    <button type="submit"><fmt:message key="common.select"/></button>
 </form>
 <ul>
-    <li><a href="users">User List</a></li>
-    <li><a href="meals">Meal List</a></li>
+    <li><a href="users"><fmt:message key="users.title"/></a></li>
+    <li><a href="meals"><fmt:message key="meals.title"/></a></li>
 </ul>
 </section>
-<hr>
 <jsp:include page="fragments/footer.jsp"/>
 </body>
 </html>
