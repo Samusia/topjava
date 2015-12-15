@@ -8,10 +8,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
-import java.util.Date;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Samusia
@@ -130,6 +127,11 @@ public class User extends NamedEntity {
 
     public List<UserMeal> getMeals() {
         return meals;
+    }
+
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = EnumSet.copyOf(roles);
     }
 
     @Override
