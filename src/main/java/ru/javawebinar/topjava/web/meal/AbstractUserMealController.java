@@ -42,13 +42,15 @@ public class AbstractUserMealController {
         return UserMealsUtil.getWithExceeded(service.getAll(userId), LoggedUser.getCaloriesPerDay());
     }
 
-    public void update(UserMeal meal) {
+    public void update(UserMeal meal, int id) {
+        meal.setId(id);
         int userId = LoggedUser.id();
         LOG.info("update {} for User {}", meal, userId);
         service.update(meal, userId);
     }
 
     public UserMeal create(UserMeal meal) {
+        meal.setId(null);
         int userId = LoggedUser.id();
         LOG.info("create {} for User {}", meal, userId);
         return service.save(meal, userId);

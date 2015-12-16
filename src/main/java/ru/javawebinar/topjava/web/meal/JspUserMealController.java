@@ -56,7 +56,7 @@ public class JspUserMealController extends AbstractUserMealController {
         if (userMeal.isNew()) {
             super.create(userMeal);
         } else {
-            super.update(userMeal);
+            super.update(userMeal, userMeal.getId());
         }
         return "redirect:meals";
     }
