@@ -1,0 +1,201 @@
+<application xmlns="http://wadl.dev.java.net/2009/02">
+    <doc xml:lang="en" title="http://localhost:8080"/>
+    <resources base="http://localhost:8080">
+        <resource path="topjava/rest/admin/users" id="adminAll">
+            <doc xml:lang="en" title="adminAll"/>
+            <method name="GET" id="adminGetAll">
+                <doc xml:lang="en" title="adminGetAll"/>
+                <request/>
+                <response status="401 500">
+                    <representation mediaType="text/html;charset=utf-8" element="html"/>
+                </response>
+                <response status="200">
+                    <representation mediaType="application/json" element="ns:Response" xmlns:ns="http://localhost/topjava/rest/admin/users/100000"/>
+                    <representation mediaType="application/json;charset=UTF-8" element="Response"/>
+                </response>
+                <response status="0">
+                    <representation mediaType="" element="data"/>
+                </response>
+            </method>
+            <method name="POST" id="adminPost">
+                <doc xml:lang="en" title="adminPost"/>
+                <request>
+                    <representation mediaType="application/json"/>
+                </request>
+                <response status="">
+                    <representation mediaType="application/json"/>
+                </response>
+                <response status="500">
+                    <representation mediaType="text/html;charset=utf-8" element="html"/>
+                </response>
+                <response status="201">
+                    <representation mediaType="application/json" element="user:Response" xmlns:user="http://localhost/topjava/rest/admin/users"/>
+                    <representation mediaType="application/json;charset=UTF-8" element="user:Response" xmlns:user="http://localhost/topjava/rest/admin/users"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="topjava/rest/admin/users/100000" id="admin">
+            <doc xml:lang="en" title="admin"/>
+            <method name="GET" id="adminGet">
+                <doc xml:lang="en" title="adminGet"/>
+                <request/>
+                <response status="500">
+                    <representation mediaType="text/html;charset=utf-8" element="html"/>
+                </response>
+                <response status="200">
+                    <representation mediaType="application/json" element="ns:Response" xmlns:ns="http://localhost/topjava/rest/admin/users/100000"/>
+                    <representation mediaType="application/json;charset=UTF-8" element="ns:Response" xmlns:ns="http://localhost/topjava/rest/admin/users/100000"/>
+                </response>
+            </method>
+            <method name="PUT" id="adminPut">
+                <doc xml:lang="en" title="adminPut"/>
+                <request>
+                    <representation mediaType="application/json"/>
+                </request>
+                <response status="405 500">
+                    <representation mediaType="text/html;charset=utf-8" element="html"/>
+                </response>
+                <response status="">
+                    <representation mediaType="application/json"/>
+                </response>
+                <response status="200">
+                    <representation mediaType="" element="data"/>
+                    <representation mediaType="" element="data"/>
+                    <representation mediaType="" element="data"/>
+                    <representation mediaType="" element="data"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="topjava/rest/profile" id="profile">
+            <doc xml:lang="en" title="profile"/>
+            <method name="GET" id="profileGet">
+                <doc xml:lang="en" title="profileGet"/>
+                <request/>
+                <response status="500">
+                    <representation mediaType="text/html;charset=utf-8" element="html"/>
+                </response>
+                <response status="200">
+                    <representation mediaType="application/json" element="ns:Response" xmlns:ns="http://localhost/topjava/rest/admin/users/100000"/>
+                    <representation mediaType="application/json;charset=UTF-8" element="prof:Response" xmlns:prof="http://localhost/topjava/rest/profile"/>
+                </response>
+            </method>
+            <method name="PUT" id="profilePut">
+                <doc xml:lang="en" title="profilePut"/>
+                <request>
+                    <representation mediaType="application/json"/>
+                </request>
+                <response status="">
+                    <representation mediaType="application/json"/>
+                </response>
+                <response status="405 500">
+                    <representation mediaType="text/html;charset=utf-8" element="html"/>
+                </response>
+                <response status="201">
+                    <representation mediaType="application/json" element="user:Response" xmlns:user="http://localhost/topjava/rest/admin/users"/>
+                </response>
+                <response status="200">
+                    <representation mediaType="" element="data"/>
+                    <representation mediaType="" element="data"/>
+                    <representation mediaType="" element="data"/>
+                    <representation mediaType="" element="data"/>
+                    <representation mediaType="" element="data"/>
+                    <representation mediaType="" element="data"/>
+                </response>
+            </method>
+            <method name="DELETE" id="profileDelete">
+                <doc xml:lang="en" title="profileDelete"/>
+                <request>
+                    <representation mediaType="application/json"/>
+                </request>
+                <response status="200">
+                    <representation mediaType="" element="data"/>
+                    <representation mediaType="" element="data"/>
+                </response>
+                <response status="500">
+                    <representation mediaType="text/html;charset=utf-8" element="html"/>
+                </response>
+                <response status="">
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="topjava/rest/profile/meals" id="mealsAll">
+            <doc xml:lang="en" title="mealsAll"/>
+            <method name="GET" id="mealsGetAll">
+                <doc xml:lang="en" title="mealsGetAll"/>
+                <request/>
+                <response status="200">
+                    <representation mediaType="application/json;charset=UTF-8" element="Response"/>
+                </response>
+            </method>
+            <method name="POST" id="mealsPost">
+                <doc xml:lang="en" title="mealsPost"/>
+                <request>
+                    <representation mediaType="application/json"/>
+                </request>
+                <response status="400">
+                    <representation mediaType="text/html;charset=utf-8" element="html"/>
+                </response>
+                <response status="">
+                    <representation mediaType="application/json"/>
+                </response>
+                <response status="0">
+                    <representation mediaType="" element="data"/>
+                </response>
+                <response status="201">
+                    <representation mediaType="application/json;charset=UTF-8" element="meal:Response" xmlns:meal="http://localhost/topjava/rest/profile/meals"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="topjava/rest/profile/meals/100002" id="meal">
+            <doc xml:lang="en" title="meal"/>
+            <method name="GET" id="mealGet">
+                <doc xml:lang="en" title="mealGet"/>
+                <request/>
+                <response status="200">
+                    <representation mediaType="application/json;charset=UTF-8" element="ns:Response" xmlns:ns="http://localhost/topjava/rest/profile/meals/100002"/>
+                </response>
+            </method>
+            <method name="PUT" id="mealPut">
+                <doc xml:lang="en" title="mealPut"/>
+                <request>
+                    <representation mediaType="application/json"/>
+                </request>
+                <response status="400">
+                    <representation mediaType="text/html;charset=utf-8" element="html"/>
+                </response>
+                <response status="">
+                    <representation mediaType="application/json"/>
+                </response>
+                <response status="200">
+                    <representation mediaType="" element="data"/>
+                    <representation mediaType="" element="data"/>
+                    <representation mediaType="" element="data"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="topjava/rest/profile/meals/between" id="between">
+            <doc xml:lang="en" title="between"/>
+            <param name="startDateTime" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <param name="endDateTime" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <method name="GET" id="mealsGetBetween">
+                <doc xml:lang="en" title="mealsGetBetween"/>
+                <request/>
+                <response status="200">
+                    <representation mediaType="application/json;charset=UTF-8" element="Response"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="topjava/rest/profile/meals/filter" id="filter">
+            <doc xml:lang="en" title="filter"/>
+            <param name="startDate" type="xs:string" required="false" default="" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+            <method name="GET" id="mealsGetFilter">
+                <doc xml:lang="en" title="mealsGetFilter"/>
+                <request/>
+                <response status="200">
+                    <representation mediaType="application/json;charset=UTF-8" element="Response"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>
