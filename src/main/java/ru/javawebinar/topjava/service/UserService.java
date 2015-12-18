@@ -22,9 +22,11 @@ public interface UserService {
 
     Collection<User> getAll();
 
-    void update(User user) throws NotFoundException;
+    void update(User user);
 
     void evictCache();
+
+    void enable(int id, boolean enable);
 
     User getWithMeals(int id);
 }
