@@ -26,7 +26,7 @@ public class AdminAjaxController extends AbstractUserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void update(@RequestParam("id") int id,
+    public void updateOrCreate(@RequestParam("id") int id,
                        @RequestParam("name") String name,
                        @RequestParam("email") String email,
                        @RequestParam("password") String password) {
