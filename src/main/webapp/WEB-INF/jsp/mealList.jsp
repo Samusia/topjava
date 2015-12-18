@@ -63,7 +63,7 @@
                     </thead>
                     <c:forEach items="${mealList}" var="meal">
                         <jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.to.UserMealWithExceed"/>
-                        <tr class="${meal.exceed ? 'exceeded' : 'normal'}">
+                        <tr class="${meal.exceed ? 'exceeded' : 'normal'}" id="${meal.id}">
                             <td>
                                     <%--<fmt:parseDate value="${meal.dateTime}" pattern="y-M-dd'T'H:m" var="parsedDate"/>--%>
                                     <%--<fmt:formatDate value="${parsedDate}" pattern="yyyy.MM.dd HH:mm" />--%>
@@ -71,8 +71,8 @@
                             </td>
                             <td>${meal.description}</td>
                             <td>${meal.calories}</td>
-                            <td><a class="btn btn-xs btn-primary edit" id="${meal.id}">Edit</a></td>
-                            <td><a class="btn btn-xs btn-danger delete" id="${meal.id}">Delete</a></td>
+                            <td><a class="btn btn-xs btn-primary edit">Edit</a></td>
+                            <td><a class="btn btn-xs btn-danger delete">Delete</a></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -136,9 +136,7 @@
 <script type="text/javascript" src="resources/js/datatablesUtil.js"></script>
 <script type="text/javascript">
     var ajaxUrl = 'ajax/profile/meals/';
-
-    var oTable_datatable;
-    var oTable_datatable_params;
+    var datatableApi;
 
     function updateTable() {
         $.ajax({
@@ -153,8 +151,7 @@
     }
 
     $(function () {
-        oTable_datatable = $('#datatable');
-        oTable_datatable_params = {
+        datatableApi = $('#datatable').DataTable({
             "bPaginate": false,
             "bInfo": false,
             "aoColumns": [
@@ -182,8 +179,7 @@
                     "desc"
                 ]
             ]
-        };
-        oTable_datatable.dataTable(oTable_datatable_params);
+        });
 
         $('#filter').submit(function () {
             updateTable();
