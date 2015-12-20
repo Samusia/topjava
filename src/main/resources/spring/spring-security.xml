@@ -16,6 +16,14 @@
         <csrf disabled="true"/>
     </http>
 
+    <http>
+        <intercept-url pattern="/**/admin/**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/**" access="isAuthenticated()" />
+        <form-login />
+        <logout />
+        <csrf disabled="true"/>
+    </http>
+
     <authentication-manager>
         <authentication-provider>
             <user-service>
