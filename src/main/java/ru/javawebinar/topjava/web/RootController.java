@@ -30,8 +30,7 @@ public class RootController {
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public String userList(Model model) {
-        model.addAttribute("userList", userService.getAll());
+    public String userList() {
         return "userList";
     }
 

@@ -6,14 +6,6 @@ function makeEditable() {
         $('#editRow').modal();
     });
 
-    $('.edit').click(function () {
-        updateRow($(this).closest('tr').attr("id"));
-    });
-
-    $('.delete').click(function () {
-        deleteRow($(this).closest('tr').attr("id"));
-    });
-
     form.submit(function () {
         save();
         return false;
@@ -44,12 +36,11 @@ function deleteRow(id) {
     });
 }
 
-function enable(chkbox) {
+function enable(chkbox, id) {
     var enabled = chkbox.is(":checked");
-    var row = chkbox.closest('tr');
-    row.css("text-decoration", enabled ? "none" : "line-through");
+    chkbox.closest('tr').css("text-decoration", enabled ? "none" : "line-through");
     $.ajax({
-        url: ajaxUrl + row.attr('id'),
+        url: ajaxUrl + id,
         type: 'POST',
         data: 'enabled=' + enabled,
         success: function () {
@@ -59,12 +50,7 @@ function enable(chkbox) {
 }
 
 function updateTableByData(data) {
-    datatableApi.clear();
-    $.each(data, function (key, item) {
-        datatableApi.row.add(item);
-    });
-    datatableApi.draw();
-    init();
+    datatableApi.clear().rows.add(data).draw();
 }
 
 function save() {
@@ -107,3 +93,19 @@ function failNoty(event, jqXHR, options, jsExc) {
         layout: 'bottomRight'
     });
 }
+
+function renderEditBtn(data, type, row) {
+    if (type == 'display') {
+        return '<a class="btn btn-xs btn-primary" onclick="updateRow(' + row.id + ');">Edit</a>';
+    }
+    return data;
+}
+
+function renderDeleteBtn(data, type, row) {
+    if (type == 'display') {
+        debugger;
+        return '<a class="btn btn-xs btn-danger" onclick="deleteRow(' + row.id + ');">Delete</a>';
+    }
+    return data;
+}
+
