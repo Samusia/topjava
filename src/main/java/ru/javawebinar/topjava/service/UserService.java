@@ -2,6 +2,7 @@ package ru.javawebinar.topjava.service;
 
 
 import ru.javawebinar.topjava.model.User;
+import ru.javawebinar.topjava.to.UserTo;
 import ru.javawebinar.topjava.util.exception.NotFoundException;
 
 import java.util.Collection;
@@ -21,6 +22,8 @@ public interface UserService {
     User getByEmail(String email) throws NotFoundException;
 
     Collection<User> getAll();
+
+    void update(UserTo user);
 
     void update(User user);
 
