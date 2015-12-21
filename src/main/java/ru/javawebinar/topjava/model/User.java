@@ -10,6 +10,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import java.util.*;
 
+import static ru.javawebinar.topjava.util.UserUtil.DEFAULT_CALORIES_PER_DAY;
+
 /**
  * Created by Samusia
  * on 30.11.2015.
@@ -27,8 +29,6 @@ public class User extends NamedEntity {
     public static final String DELETE = "User.delete";
     public static final String ALL_SORTED = "User.getAllSorted";
     public static final String BY_EMAIL = "User.getByEmail";
-
-    protected static final int DEFAULT_CALORIES_PER_DAY = 2000;
 
     @Column(name = "email", nullable = false, unique = true)
     @Email

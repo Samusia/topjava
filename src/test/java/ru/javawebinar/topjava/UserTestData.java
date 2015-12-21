@@ -3,6 +3,7 @@ package ru.javawebinar.topjava;
 import ru.javawebinar.topjava.matcher.ModelMatcher;
 import ru.javawebinar.topjava.model.Role;
 import ru.javawebinar.topjava.model.User;
+import ru.javawebinar.topjava.util.UserUtil;
 
 import java.util.EnumSet;
 import java.util.Objects;
@@ -30,7 +31,7 @@ public class UserTestData {
         }
 
         public TestUser(String name, String email, String password, Role role, Role... roles) {
-            this(null, name, email, password, User.DEFAULT_CALORIES_PER_DAY, true, EnumSet.of(role, roles));
+            this(null, name, email, password, UserUtil.DEFAULT_CALORIES_PER_DAY, true, EnumSet.of(role, roles));
         }
 
         public TestUser(Integer id, String name, String email, String password, int caloriesPerDay, boolean enabled, Set<Role> roles) {
