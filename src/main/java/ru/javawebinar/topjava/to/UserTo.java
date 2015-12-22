@@ -5,8 +5,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 import ru.javawebinar.topjava.util.UserUtil;
 
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
-public class UserTo {
+public class UserTo implements Serializable {
     protected int id;
 
     @NotEmpty
