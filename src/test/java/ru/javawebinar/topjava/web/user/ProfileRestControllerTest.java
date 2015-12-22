@@ -25,6 +25,7 @@ public class ProfileRestControllerTest extends AbstractControllerTest {
     @Autowired
     private UserService service;
 
+
     @Test
     public void testGet() throws Exception {
         TestUtil.print(mockMvc.perform(get(REST_URL)
