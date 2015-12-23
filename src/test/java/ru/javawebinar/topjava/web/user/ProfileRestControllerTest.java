@@ -46,7 +46,7 @@ public class ProfileRestControllerTest extends AbstractControllerTest {
         mockMvc.perform(delete(REST_URL).contentType(MediaType.APPLICATION_JSON)
                 .with(TestUtil.userHttpBasic(USER)))
                 .andExpect(status().isOk());
-        MATCHER.assertCollectionEquals(Collections.singletonList(ADMIN), service.getAll());
+        MATCHER.assertCollectionEquals(Collections.singletonList(ADMIN), userService.getAll());
     }
 
     @Test
@@ -58,6 +58,6 @@ public class ProfileRestControllerTest extends AbstractControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk());
 
-        MATCHER.assertEquals(updated, new User(service.getByEmail("newEmail")));
+        MATCHER.assertEquals(updated, new User(userService.getByEmail("newEmail")));
     }
 }
