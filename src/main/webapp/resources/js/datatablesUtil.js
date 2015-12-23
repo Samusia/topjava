@@ -2,6 +2,7 @@ function makeEditable() {
     form = $('#detailsForm');
 
     $('#add').click(function () {
+        form.find(":input").val("");
         $('#id').val(0);
         $('#editRow').modal();
     });
@@ -103,7 +104,6 @@ function renderEditBtn(data, type, row) {
 
 function renderDeleteBtn(data, type, row) {
     if (type == 'display') {
-        debugger;
         return '<a class="btn btn-xs btn-danger" onclick="deleteRow(' + row.id + ');">Delete</a>';
     }
     return data;
