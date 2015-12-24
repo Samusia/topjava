@@ -13,7 +13,7 @@ import static java.util.Objects.requireNonNull;
  * on 30.11.2015.
  */
 public class LoggedUser extends org.springframework.security.core.userdetails.User {
-    private final UserTo userTo;
+    private UserTo userTo;
 
     public LoggedUser(User user) {
         super(user.getEmail(),
@@ -52,6 +52,11 @@ public class LoggedUser extends org.springframework.security.core.userdetails.Us
 
     public static int getCaloriesPerDay() {
         return get().userTo.getCaloriesPerDay();
+    }
+
+    public void update(UserTo newTo) {
+        newTo.setId(userTo.getId());
+        userTo = newTo;
     }
 
     @Override

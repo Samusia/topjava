@@ -27,6 +27,7 @@ public class UserUtil {
         }
         user.setName(userTo.getName());
         user.setEmail(userTo.getEmail().toLowerCase());
+        user.setCaloriesPerDay(userTo.getCaloriesPerDay());
         return user;
     }
 }

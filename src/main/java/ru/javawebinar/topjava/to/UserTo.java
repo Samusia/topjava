@@ -2,8 +2,10 @@ package ru.javawebinar.topjava.to;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 import ru.javawebinar.topjava.util.UserUtil;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -20,7 +22,10 @@ public class UserTo implements Serializable {
     @Size(min = 5, max = 64, message = " must between 5 and 64 characters")
     protected String password;
 
-    protected int caloriesPerDay = UserUtil.DEFAULT_CALORIES_PER_DAY;
+
+    @Range(min = 500, max = 5000)
+    @NotNull(message = " must not be empty")
+    protected Integer caloriesPerDay = UserUtil.DEFAULT_CALORIES_PER_DAY;
 
     public UserTo() {
     }
@@ -69,8 +74,12 @@ public class UserTo implements Serializable {
         return email;
     }
 
-    public int getCaloriesPerDay() {
+    public Integer getCaloriesPerDay() {
         return caloriesPerDay;
+    }
+
+    public void setCaloriesPerDay(Integer caloriesPerDay) {
+        this.caloriesPerDay = caloriesPerDay;
     }
 
     @Override
