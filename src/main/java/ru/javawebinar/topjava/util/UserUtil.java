@@ -1,6 +1,5 @@
 package ru.javawebinar.topjava.util;
 
-import org.springframework.util.StringUtils;
 import ru.javawebinar.topjava.model.Role;
 import ru.javawebinar.topjava.model.User;
 import ru.javawebinar.topjava.to.UserTo;
@@ -21,13 +20,16 @@ public class UserUtil {
     }
 
     public static User updateFromTo(User user, UserTo userTo) {
-        String password = userTo.getPassword();
-        if (!StringUtils.isEmpty(password)) {
-            user.setPassword(password);
-        }
         user.setName(userTo.getName());
-        user.setEmail(userTo.getEmail().toLowerCase());
+        user.setEmail(userTo.getEmail());
+        user.setPassword(userTo.getPassword());
         user.setCaloriesPerDay(userTo.getCaloriesPerDay());
+        return prepareToSave(user);
+    }
+
+    public static User prepareToSave(User user) {
+        user.setPassword(PasswordUtil.encode(user.getPassword()));
+        user.setEmail(user.getEmail().toLowerCase());
         return user;
     }
 }
