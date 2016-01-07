@@ -11,7 +11,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.to.UserMealWithExceed;
 import ru.javawebinar.topjava.util.TimeUtil;
-import ru.javawebinar.topjava.web.ExceptionInfoHandler;
 
 import java.net.URI;
 import java.time.LocalDate;
@@ -27,7 +26,7 @@ import java.util.List;
  * on 30.11.2015.
  */
 @Controller
-public class UserMealRestController extends AbstractUserMealController implements ExceptionInfoHandler {
+public class UserMealRestController extends AbstractUserMealController {
     public static final String REST_URL = "/rest/profile/meals";
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

@@ -45,7 +45,7 @@
 
         <p><a class="btn btn-primary btn-lg" role="button" href="register">Register &raquo;</a></p>
 
-        <p>Technology stack: <a href="http://projects.spring.io/spring-security/">Spring Security</a>,
+        <p>Стек технологий: <a href="http://projects.spring.io/spring-security/">Spring Security</a>,
             <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html">Spring MVC</a>,
             <a href="http://projects.spring.io/spring-data-jpa/">Spring Data JPA</a>,
             <a href="http://spring.io/blog/2014/05/07/preview-spring-security-test-method-security">Spring Security
@@ -70,7 +70,10 @@
 </div>
 <div class="container">
     <div class="lead">
-        &nbsp;&nbsp;&nbsp;Приложение с регистрацией/авторизацией пользователя и интерфейсом на основе ролей (ROLE_USER, ROLE_ADMIN).
+        &nbsp;&nbsp;&nbsp;Java Enterprise проект с регистрацией/авторизацией и интерфейсом на основе ролей (USER, ADMIN).
+        Администратор может создавать/редактировать/удалять/пользователей, а пользователь - управлять своим
+        профилем и данными (день, еда, калории) через UI (по AJAX) и по REST интерфейсу с базовой авторизацией.
+        Возможна фильтрация данных по датам и времени, при этом цвет записи таблицы еды зависит от того, превышает ли сумма
         Администратор может управлять (редактировать/удалять/создавать) пользователями через UI
         и по REST интерфейсу с базовой авторизацией. Пользователь может ограниченно редактировать и просматривать свои
         данные
@@ -78,7 +81,7 @@
         Приложение позволяет управлять пользовательскими данные (день, еда, калории) в таблице по AJAX.
         Возможна фильтрация данных по датам и времени, при этом цвет записи таблицы зависит от того, превышает ли сумма
         калорий за день норму (редактируемый параметр в профиле пользователя).
-        Весь REST интерфейс покрывается JUnit тестами, используя Spring MVC Test и Spring Security Test
+        Весь REST интерфейс покрывается JUnit тестами, используя Spring MVC Test и Spring Security Test.
     </div>
 </div>
 <jsp:include page="fragments/footer.jsp"/>
