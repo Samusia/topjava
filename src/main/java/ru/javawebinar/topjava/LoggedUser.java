@@ -57,7 +57,6 @@ public class LoggedUser extends org.springframework.security.core.userdetails.Us
     }
 
     public void update(UserTo newTo) {
-        newTo.setId(userTo.getId());
         userTo = newTo;
     }
 
