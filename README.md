@@ -1,4 +1,5 @@
-Java Enterprise Online Project 
+Java Enterprise Online Project
+<a href="http://mycaloriecalculator.herokuapp.com/" target=_blank>Финальная версия приложения на Heroku</a>
 ===============================
 Наиболее востребованные технологии /инструменты / фреймворки Java Enterprise:
 Maven/ Spring/ Security/ JPA(Hibernate)/ REST(Jackson)/ Bootstrap(CSS)/ jQuery + plugins.
@@ -14,7 +15,6 @@ Maven/ Spring/ Security/ JPA(Hibernate)/ REST(Jackson)/ Bootstrap(CSS)/ jQuery +
 ===============
 
 ## <a href="description.md">Описание проекта</a>
-### <a href="http://topjava.herokuapp.com/" target=_blank>Демо разрабатываемого приложения</a>
 
 
 
